@@ -33,21 +33,21 @@
 
     <lorem :len="10"></lorem>
     <div style="height: 300px;">
-      <calendar v-model="value"  :disabled-days-of-week="disabled" :format="format" :clear-button="clear" :placeholder="placeholder" :pane="2" :has-input="false" :on-day-click="onDayClick1"></calendar>
+      <calendar v-model="value"  :disabled-days-of-week="disabled" :format="format" :clear-button="clear" :placeholder="placeholder" :pane="12" :has-input="false" :on-day-click="onDayClick1"></calendar>
       <p>{{date1}}</p>
     </div>
     <lorem :len="3"></lorem>
 
     <div style="height: 300px;">
     <!-- range-bus example -->
-      <calendar v-model="value"   :disabled-days-of-week="disabled" :format="format" :clear-button="clear" :placeholder="placeholder" :pane="2" :range-bus="getBus" :range-status="1"></calendar>
+      <calendar v-model="value"   :disabled-days-of-week="disabled" :format="format" :clear-button="clear" :placeholder="placeholder" :pane="12" :range-bus="getBus" :range-status="1"></calendar>
        <calendar v-model="value2" :value="value2"  :disabled-days-of-week="disabled" :format="format" :clear-button="clear" :placeholder="placeholder" :pane="2" :range-bus="getBus" :range-status="2"></calendar>
     </div>
     <lorem :len="3"></lorem>
 
 
     <div style="height: 300px;">
-      <calendar v-model="value"  :disabled-days-of-week="disabled" :format="format" :clear-button="clear" :placeholder="placeholder" :pane="2" :has-input="false" :on-day-click="onDayClick2" :special-days="_dateMap">
+      <calendar v-model="value"  :disabled-days-of-week="disabled" :format="format" :clear-button="clear" :placeholder="placeholder" :pane="12" :has-input="false" :on-day-click="onDayClick2" :special-days="_dateMap">
       </calendar>
       <p>{{date2}}</p>
     </div>
