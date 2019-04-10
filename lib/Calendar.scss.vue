@@ -331,6 +331,8 @@ export default {
     // this.inputValue = this.value
     // this.dateFormat = this.format
     this.currDate = this.parse(this.inputValue) || this.parse(new Date());
+    var tempCurrDate = new Date();
+    this.currDate = new Date(tempCurrDate.getFullYear() - 1,12,tempCurrDate.getDate());
     const year = this.currDate.getFullYear();
     const month = this.currDate.getMonth();
     this.changePane(year, month, this.pane);
@@ -539,13 +541,13 @@ export default {
       this.updatePaneStyle();
     },
     getElOffset(el) {
-      let offsetParent = el;
       let top = el.offsetTop;
       let left = el.offsetLeft;
-      while (offsetParent != document.body) {
-        offsetParent = offsetParent.offsetParent;
+      let offsetParent = el.offsetParent;
+      while (offsetParent && offsetParent != document.body) {
         top += offsetParent.offsetTop;
         left += offsetParent.offsetLeft;
+        offsetParent = offsetParent.offsetParent;
       }
       return {
         top,
@@ -774,7 +776,7 @@ export default {
         const currMonthFirstDay = new Date(time.year, time.month, 1);
         let firstDayWeek = this.prefixLen(currMonthFirstDay);
         const dayCount = this.getDayCount(time.year, time.month);
-        if (firstDayWeek > 1) {
+        if (firstDayWeek >= 1) {
           const preMonth = this.getYearMonth(time.year, time.month - 1);
           const prevMonthDayCount = this.getDayCount(
             preMonth.year,
