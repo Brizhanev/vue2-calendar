@@ -331,6 +331,8 @@ export default {
     // this.inputValue = this.value
     // this.dateFormat = this.format
     this.currDate = this.parse(this.inputValue) || this.parse(new Date());
+    var tempCurrDate = new Date();
+    this.currDate = new Date(tempCurrDate.getFullYear() - 1,12,tempCurrDate.getDate());
     const year = this.currDate.getFullYear();
     const month = this.currDate.getMonth();
     this.changePane(year, month, this.pane);
